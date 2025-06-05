@@ -1,0 +1,29 @@
+{% extends 'base_movies.html' %}
+
+{% load static %}  
+{%block title %} Поиск {% endblock%}
+
+
+{% block content %}
+    <h2>Фильмы из поиска</h2>
+
+    <ul>
+        {% for movie in movies%}
+        <li><a href='{% url "TestApp:show_one_movie" movie.id %}'>{{ movie }}</a></li>
+        {% endfor %}
+    </ul>
+    
+    <form method="GET">
+    <input name="search" type="search" placeholder="Search" aria-label="Search"
+    value="{{ search_input }}">
+    <button type="submit">Search</button>
+    </form>
+      <ul>
+        {% for movie in m%}
+        <li><a href='{% url "TestApp:show_one_movie" movie.id %}'>{{ movie }}</a></li>
+        {% endfor %}
+    </ul>
+    
+
+
+{% endblock %}

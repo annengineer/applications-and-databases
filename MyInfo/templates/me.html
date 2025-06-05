@@ -1,0 +1,149 @@
+{% extends 'base_info.html' %}
+
+{% block main %}
+{% load static %}  
+<style>
+    
+    .bg-image {
+        background-image: url("{% static '/images/background.jpg' %}");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        height: 100vh;
+    }
+    
+    .profile-container {
+        background-color: rgba(255, 255, 255, 0.9);
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(219, 216, 216, 0.1);
+        max-width: 800px;
+        margin: 0 auto;
+    }
+    
+    .profile-header {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+        margin-bottom: 25px;
+    }
+    
+    .profile-image {
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 10px;
+        border: 3px solid rgb(156, 156, 156);
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    .no-image {
+        width: 150px;
+        height: 150px;
+        background-color: #f8f9fa;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px;
+        color: #666;
+        border: 2px dashed #ccc;
+    }
+    
+    .profile-name {
+        color: #333;
+        font-size: 2rem;
+        margin: 0;
+    }
+    
+    .profile-detail {
+        color: #555;
+        font-size: 1.1rem;
+        margin-bottom: 12px;
+    }
+    
+    .profile-resume {
+        font-style: italic;
+        color: #666;
+        font-size: 1.2rem;
+        line-height: 1.6;
+        padding: 20px;
+        background-color: rgba(248, 249, 250, 0.7);
+        border-radius: 8px;
+        margin: 25px 0;
+        border-left: 4px solid rgb(156, 156, 156);
+    }
+    
+    .portfolio-link {
+        display: inline-block;
+        background-color: rgb(216, 216, 216);
+        color: #333;
+        text-decoration: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        margin-top: 15px;
+    }
+    
+    .portfolio-link:hover {
+        background-color: rgb(156, 156, 156);
+        color: #000;
+        text-decoration: none;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .profile-photo {
+        width: 150%;
+        max-width: 200px;
+        height: auto;
+        border-radius: 70%;  /* для круглого фото */
+    }
+ 
+    .detail-icon {
+        color: rgb(156, 156, 156);
+        width: 25px;
+        display: inline-block;
+        text-align: center;
+    }
+    
+</style>
+
+<div class="profile-container">
+    
+    <div class="profile-header">
+        <img src="{% static '/images/ann.jpg' %}" alt="Фото" class="profile-photo">
+
+            <h1 class="profile-name">{{ member.name }}</h1>
+        </div>
+    </div>
+   
+    <div class="profile-details">
+        <p class="profile-detail">
+            <span class="detail-icon"><i class="fas fa-envelope"></i></span> 
+            <strong>Email:</strong> {{ member.email|default:"не указан" }}
+        </p>
+        <p class="profile-detail">
+            <span class="detail-icon"><i class="fas fa-phone"></i></span> 
+            <strong>Контактные данные:</strong> {{ member.phone|default:"не указан" }}
+        </p>
+    </div>
+    
+    
+    <div class="profile-resume">
+        <h8>Проектирование и разработка объемно-планировочных решений, изготовление типовых планов, ведение сметных и расчетных таблиц</h8>
+    </div>
+    
+
+    {% if member.portfolio_link %}
+        <a href="{{ member.portfolio_link }}" target="_blank" class="portfolio-link">
+            <i class="fas fa-external-link-alt"></i> Ссылка на портфолио
+        </a>
+    {% endif %}
+    
+    
+</div>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+{% endblock %}

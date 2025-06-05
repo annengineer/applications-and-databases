@@ -1,0 +1,16 @@
+{% extends 'base_movies.html' %}
+
+{% load static %}  
+{%block title %} Все фильмы {% endblock%}
+
+
+{% block content %}
+    <h2>Список фильмов</h2>
+    <ul>
+        {% for movie in movies%}
+        <li><a href='{% url "TestApp:show_one_movie" movie.id %}'>{{ movie }}</a></li>
+        {% endfor %}
+    </ul>
+
+
+{% endblock %}

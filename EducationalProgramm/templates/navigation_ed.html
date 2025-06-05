@@ -1,0 +1,64 @@
+
+
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Переключить навигацию">
+    <span class="navbar-toggler-icon"></span>
+</button>
+
+<style>
+    .otstup{
+        margin-right: 10px;
+    }
+</style>
+
+<div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav otstup">
+
+        <li class="nav-item active">
+            <a
+            {% if request.path == "/EducationalProgramm/main_page/" %}
+                class ='nav-link active color_change'
+            {% else %}
+                class ='nav-link'
+            {% endif %}
+            id="home" href="{% url 'EducationalProgramm:main_page' %}"
+        >Мои проекты</a>
+        </li>
+         <li class="nav-item active">
+            <a
+            {% if request.path == "/EducationalProgramm/create/" %}
+                class ='nav-link active color_change'
+            {% else %}
+                class ='nav-link'
+            {% endif %}
+            id="home" href="{% url 'EducationalProgramm:create' %}"
+        >Форма</a>
+        </li>
+        
+        <li class="nav-item active">
+            <a
+            {% if request.path == "" %}
+                class ='nav-link active color_change'
+            {% else %}
+                class ='nav-link'
+            {% endif %}
+            id="home" href="{% url 'homepage' %}"
+        > Главная</a>
+        </li>
+        <li class="nav-item active">
+            <a
+            {% if request.path == "" %}
+                class ='nav-link active color_change'
+            {% else %}
+                class ='nav-link'
+            {% endif %}
+            id="home" href="{% url 'MyInfo:groupmates' %}"
+        >Мое образование</a>
+        </li>
+       
+      
+        
+    </ul>
+</div>
+
+    
+    

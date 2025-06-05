@@ -1,0 +1,63 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset = "UTF-8">
+        <title>БД</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="icon" href="{% static '/images/dirt_block_icon.png' %}" type="image/png">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+        <style>
+            .bg-image {
+            background-image: url("{% static '/images/background.jpg' %}");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            height: 100vh; }
+            .width_style {
+                width: 60%;
+            }
+            .color_change
+            {
+                color: red;
+                font-weight: bold;
+            }
+            .upper_link{
+                color: black;
+                text-decoration: none; 
+            }
+            
+
+       
+        </style>
+        </head>
+<body class="bg-image">
+    <div class="container width_style">
+            <header class="card">
+                <div class = "card-body">
+                    {% load static %}                   
+                    <a href="{% url 'EducationalProgramm:main_page' %}" class="upper_link"><h3 class="card-title">  <img src="{% static '/images/ann.jpg' %}" alt="{% static '/images/ann.jpg' %}" width="30px">Проекты</h3></a>
+                </div>
+            </header>
+            <div class = "card">
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    
+                    {% include 'navigation_ed.html' %}
+                </nav>
+               
+                <main class="card-body">
+                    {% block main %}
+
+                    {% endblock %}
+                </main>
+            </div>
+            <footer class ="card"...></footer>
+            <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    </div> 
+   
+</body>
+</html>

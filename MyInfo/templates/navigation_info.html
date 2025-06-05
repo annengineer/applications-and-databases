@@ -1,0 +1,82 @@
+<!-- <a class="navbar-brand" href="#">Логотип</a> -->
+
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Переключить навигацию">
+    <span class="navbar-toggler-icon"></span>
+</button>
+
+<style>
+    .otstup{
+        margin-right: 10px;
+    }
+</style>
+
+<div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav otstup">
+
+        
+        
+        <li class="nav-item active">
+            <a
+            {% if request.path == "/MyInfo/groupmates/" %}
+                class ='nav-link active color_change'
+            {% else %}
+                class ='nav-link'
+            {% endif %}
+            id="home" href="{% url 'MyInfo:groupmates' %}"
+        >Группа БГП222</a>
+        </li>
+
+        <li class="nav-item active">
+            <a
+            {% if request.path == "/MyInfo/me/" %}
+                class ='nav-link active color_change'
+            {% else %}
+                class ='nav-link'
+            {% endif %}
+            id="home" href="{% url 'MyInfo:me' %}"
+        >Моя карточка</a>
+        </li>
+         <li class="nav-item active">
+            <a
+            {% if request.path == "/MyInfo/managers/" %}
+                class ='nav-link active color_change'
+            {% else %}
+                class ='nav-link'
+            {% endif %}
+            id="home" href="{% url 'MyInfo:managers' %}"
+        >Преподавательский состав</a>
+        </li>
+         <li class="nav-item active">
+            <a
+            {% if request.path == "/MyInfo/ep/" %}
+                class ='nav-link active color_change'
+            {% else %}
+                class ='nav-link'
+            {% endif %}
+            id="home" href="{% url 'MyInfo:ep' %}"
+        >Образовательная программа</a>
+        </li>
+
+
+        
+             <li class="nav-item active">
+            <a
+            {% if request.path == "" %}
+                class ='nav-link active color_change'
+            {% else %}
+                class ='nav-link'
+            {% endif %}
+            id="home" href="{% url 'homepage' %}"
+        >К началу</a>
+        </li>
+        
+        
+        
+       
+      
+        
+    </ul>
+</div>
+
+    
+    
